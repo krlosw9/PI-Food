@@ -61,7 +61,6 @@ const getAllRecipesDB = () =>{
 //Retorna una receta de la api con su informacion detallada
 const getDetailsRecipesApi = (idRecipe) =>{
   const URL = `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}`;
-  // const URL = `https://api.spoonacular.com/recipes/716426/information?apiKey=2361911a955145469b4658d9f06a042d`;
 
   const recipe = axios.get(URL)
     .then(r => {

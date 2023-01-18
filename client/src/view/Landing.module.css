@@ -1,0 +1,5 @@
+.container{
+  background-image: url('../utils/background.png');
+  width: 100vw;
+  height: 100vh;
+}

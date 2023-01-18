@@ -1,10 +1,11 @@
-import './App.css';
+import { Switch, Route } from "react-router-dom";
+import Landing from "./view/Landing";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Food</h1>
-    </div>
+    <Switch>
+      <Route path='/' component={Landing}/>
+    </Switch>
   );
 }
 
