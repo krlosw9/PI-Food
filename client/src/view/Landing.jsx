@@ -6,7 +6,7 @@ export default function Landing() {
   return(
     <main className={style.container}>
       <div className={style.card}>
-        <div className={style.cardTitle}>¡Wellcome!</div>
+        <h1 className={style.cardTitle}>Wellcome!</h1>
         <div className={style.cardContent}>
           On this site, you can find the best <span>recipes </span>.
           In addition to the necessary <span>ingredients </span>and <span>instructions </span>to prepare them.
