@@ -28,6 +28,10 @@ module.exports = (sequelize) => {
     },
     time: {
       type: DataTypes.INTEGER
+    },
+    created: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   });
 };
