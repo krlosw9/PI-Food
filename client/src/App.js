@@ -1,12 +1,14 @@
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Landing from "./view/Landing";
+import Home from "./view/Home";
 import './App.css';
 
 function App() {
   return (
-    <Switch>
-      <Route path='/' component={Landing}/>
-    </Switch>
+    <Routes>
+      <Route path='/' element={<Landing/>}/>
+      <Route path='/home' element={<Home/>}/>
+    </Routes>
   );
 }
 
