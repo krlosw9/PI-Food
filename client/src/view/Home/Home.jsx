@@ -5,16 +5,27 @@ import style from './Home.module.css'
 import Cards from '../../components/Cards/Cards'
 import BtnNew from '../../components/Button/BtnNew'
 import Logo from "../../components/Logo/Logo"
+import Pagination from '../../components/Pagination/Pagination'
 import iconGithub from '../../utils/footer/iconGithub.png'
 import iconLinkedin from '../../utils/footer/iconLinkedin.png'
 
 export default function Home() {
+  const PAGINATOR_SIZE = 9;
   const dispatch = useDispatch();
   const allRecipes = useSelector(store => store.allRecipes);
+  const currentPage = useSelector(store => store.currentPage);
 
   useEffect(() => {
     dispatch(getAll())
   },[dispatch])
+
+  const paginatedRecipes = () =>{
+    const offset = (currentPage-1) * PAGINATOR_SIZE;
+    const limit = offset + PAGINATOR_SIZE;
+    return allRecipes.slice(offset, limit)
+  }
+
+  const pageCount = () => Math.ceil(allRecipes.length / PAGINATOR_SIZE)
 
   return (
     <div className={style.containerHome}>
@@ -24,7 +35,8 @@ export default function Home() {
           <BtnNew />
         </header>
         <main>
-          <Cards recipes={allRecipes}/>
+          <Cards recipes={paginatedRecipes()}/>
+          {allRecipes.length !== 0 && <Pagination pageCount={pageCount()} currentPage={currentPage}/>}
         </main>
       </div>
       <footer className={style.footer}>

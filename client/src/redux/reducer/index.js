@@ -1,7 +1,8 @@
-import {GET_ALL} from '../actions/type'
+import {GET_ALL,CHANGE_PAGE} from '../actions/type'
 
 const initialState = {
-  allRecipes: []
+  allRecipes: [],
+  currentPage: 1
 }
 
 export default function rootReducer(state = initialState, {type, payload}) {
@@ -10,6 +11,11 @@ export default function rootReducer(state = initialState, {type, payload}) {
       return {
         ...state, 
         allRecipes: payload
+      }
+    case CHANGE_PAGE: 
+      return {
+        ...state,
+        currentPage: payload
       }
   
     default: return state
