@@ -5,7 +5,9 @@ const axios = require('axios');
 require('dotenv').config();
 const { API_KEY } = process.env;
 
-const LIMIT = 2;
+const LIMIT = 100;
+
+const recipesApiTemporarily = require('./recipesApiTemporarily');
 
 //Esta funcion es llamada desde la funcion index del handler recipe, esta funcion trae todas las recipe de base de datos y de la api
 const getAll = async () =>{
@@ -13,13 +15,14 @@ const getAll = async () =>{
   const URL = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=${LIMIT}`;
 
   //Traemos recetas de la api
-  const recipesRawApi = (await axios.get(URL)).data;
+  // const recipesRawApi = (await axios.get(URL)).data;
+  const dataApi = recipesApiTemporarily;
   //Le damos formato a la respuesta traida de la api
-  const dataApi = cleanArrayApi(recipesRawApi);
+  // const dataApi = cleanArrayApi(recipesRawApi);
 
   //Traemos recetas de la base de datos
   const recipesRawDb = await Recipe.findAll({
-    include: Diet, attributes: ['id','title', "healthScore", "time", "image"]
+    include: Diet, attributes: ['id','title', "healthScore", "time", "image","created"]
   })
   //Le damos formato a la respuesta de la base de datos
   const dataDB = cleanArrayDB(recipesRawDb);
@@ -43,7 +46,7 @@ const searchRecipeByTitle = async (title) =>{
       }
     },
     include: Diet, 
-    attributes: ['id','title', "healthScore", "time", "image"]
+    attributes: ['id','title', "healthScore", "time", "image","created"]
   })
   //Le damos formato a la respuesta de la base de datos
   const dataDB = cleanArrayDB(recipesRawDb);
@@ -82,7 +85,8 @@ const cleanArrayDB = (recipesRaw) =>{
       healthScore:  recipe.healthScore,
       time:         recipe.time,
       image:        recipe.image,
-      diets:        recipe.diets.map(diet => diet.name)
+      diets:        recipe.diets.map(diet => diet.name),
+      created:      recipe.created
     }
   })
 }
