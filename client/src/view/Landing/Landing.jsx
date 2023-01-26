@@ -1,6 +1,5 @@
-import arrowRight from '../utils/landing/arrowRight.png'
 import style from './Landing.module.css';
-import {Link} from 'react-router-dom'
+import BtnSeeMore from '../../components/Button/BtnSeeMore'
 
 export default function Landing() {
   return(
@@ -11,11 +10,8 @@ export default function Landing() {
           On this site, you can find the best <span>recipes. </span>
           In addition to the necessary <span>ingredients </span>and <span>instructions </span>to prepare them.
         </div>
-        <Link to='/home'>
-          <button className={style.cardButton}>
-            See recipes <span><img src={arrowRight} alt="arrowRight" /> </span>
-          </button>
-        </Link>
+
+        <BtnSeeMore />
       </div>
     </main>
   )

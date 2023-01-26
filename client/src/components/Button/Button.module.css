@@ -1,0 +1,36 @@
+a{
+  text-decoration: none;
+}
+.button{
+  background-color: #FF795B;
+  border-radius: 10px;
+  padding: 12px 32px;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  color: #FBFBFB;
+  width: fit-content;
+}
+
+.button :is(img){
+  width: 16px;
+  position: relative;
+  top: 3px;
+  left: 8px;
+}
+
+.btnNew :is(img){
+  width: 14px;
+}
+
+.btnBack :is(img){
+  width: 10px;
+  left: -8px;
+}
+
+.btnKnowMore{
+  background-color: #FBFBFB;
+  border: 2px solid #FF795B;
+  color: #808BA8
+}

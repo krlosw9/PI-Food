@@ -1,0 +1,19 @@
+.card{
+  width: 90%;
+  max-width: 300px;
+  height: 378px;
+  background-color: #FBFBFB;
+  border-radius: 10px;
+  padding: 24px;
+  text-align: center;
+}
+
+.recipeImage {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.card :is(h4){
+  display: inline-block;
+}

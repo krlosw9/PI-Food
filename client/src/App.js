@@ -1,13 +1,14 @@
 import { Routes, Route } from "react-router-dom";
-import Landing from "./view/Landing";
-import Home from "./view/Home";
+import {Landing, Home, Form, Detail} from "./view"
 import './App.css';
 
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Landing/>}/>
-      <Route path='/home' element={<Home/>}/>
+      <Route path='/' element={<Landing />}/>
+      <Route path='/home' element={<Home />}/>
+      <Route path='/detail' element={<Form />}/>
+      <Route path='/create' element={<Detail />}/>
     </Routes>
   );
 }
