@@ -10,7 +10,7 @@ const recipeValidator = (req, res, next) =>{
   if (image !== '' && (!regularExpression.test(image))) return res.json({error: "Image url invalid"});
   
   //Si el usuario no definio url de image, se asigna una url image predeterminada
-  if (!image) req.body.image = "https://mayoresconectados.com.ar/wp-content/uploads/2017/05/comida-misteriosa-2.jpg";
+  if (!image) req.body.image = "https://spoonacular.com/recipeImages/667701-312x231.jpg";
   
   //Admite healthScore vacio o numerico
   if (isNaN(healthScore)) return res.json({error: "healthScore not is number"});

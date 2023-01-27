@@ -1,2 +1,4 @@
 export const GET_ALL = 'GET_ALL';
 export const CHANGE_PAGE = 'CHANGE_PAGE';
+export const SEARCH_RECIPE = 'SEARCH RECIPE';
+export const CHANGE_ERROR_STATUS = 'CHANGE_ERROR_STATUS';

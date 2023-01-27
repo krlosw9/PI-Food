@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { getAll } from '../../redux/actions'
 import style from './Home.module.css'
+import SearchBar from '../../components/SearchBar/SearchBar'
 import Cards from '../../components/Cards/Cards'
 import BtnNew from '../../components/Button/BtnNew'
 import Logo from "../../components/Logo/Logo"
@@ -20,12 +21,23 @@ export default function Home() {
   },[dispatch])
 
   const paginatedRecipes = () =>{
-    const offset = (currentPage-1) * PAGINATOR_SIZE;
-    const limit = offset + PAGINATOR_SIZE;
-    return allRecipes.slice(offset, limit)
+    //allRecipes es asincrono, apenas carga Home es null, por lo tanto no se le puede hacer slice
+    if (Array.isArray(allRecipes)) {
+      const offset = (currentPage-1) * PAGINATOR_SIZE;
+      const limit = offset + PAGINATOR_SIZE;
+      return allRecipes.slice(offset, limit)
+    }else{
+      return []
+    }
   }
 
-  const pageCount = () => Math.ceil(allRecipes.length / PAGINATOR_SIZE)
+  const pageCount = () => {
+    if (Array.isArray(allRecipes)) {
+      return Math.ceil(allRecipes.length / PAGINATOR_SIZE)
+    }else{
+      return 0;
+    }
+  }
 
   return (
     <div className={style.containerHome}>
@@ -35,8 +47,9 @@ export default function Home() {
           <BtnNew />
         </header>
         <main>
+          <SearchBar />
           <Cards recipes={paginatedRecipes()}/>
-          {allRecipes.length !== 0 && <Pagination pageCount={pageCount()} currentPage={currentPage}/>}
+          {Array.isArray(allRecipes) && allRecipes.length !== 0 && <Pagination pageCount={pageCount()} currentPage={currentPage}/>}
         </main>
       </div>
       <footer className={style.footer}>
