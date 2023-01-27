@@ -46,7 +46,7 @@ export default function SearchBar() {
   return(
     <div className={style.searchBar}>
       <form onSubmit={handlerSubmit}>
-        <input type="text" value={input} onChange={handlerChange} placeholder='Search by name'/>
+        <input type="text" value={input} onChange={handlerChange} placeholder='Search by name' className={style.searchBarInput}/>
       </form>
       {loading && <p>{loading}</p>}
       {error && <p className='errorMessage'>{error}</p>}

@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import { getAll } from '../../redux/actions'
 import style from './Home.module.css'
 import SearchBar from '../../components/SearchBar/SearchBar'
+import Filters from '../../components/Filters/Filters'
 import Cards from '../../components/Cards/Cards'
 import BtnNew from '../../components/Button/BtnNew'
 import Logo from "../../components/Logo/Logo"
@@ -48,6 +49,7 @@ export default function Home() {
         </header>
         <main>
           <SearchBar />
+          <Filters />
           <Cards recipes={paginatedRecipes()}/>
           {Array.isArray(allRecipes) && allRecipes.length !== 0 && <Pagination pageCount={pageCount()} currentPage={currentPage}/>}
         </main>

@@ -1,6 +1,19 @@
 .searchBar{
   text-align: center;
   margin: 1rem auto;
+  height: 36px;
+}
+
+.searchBarInput{
+  width: 95%;
+  max-width: 240px;
+  font-family: inherit;
+  font-weight: 700;
+  color: #808BA8;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px 8px 16px;
 }
 
 .errorStatus{

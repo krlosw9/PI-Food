@@ -1,4 +1,5 @@
-import { GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS } from "./type";
+import { GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS,GET_DIETS,
+          FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY } from "./type";
 const URL_BACKEND = 'http://192.168.10.87:3001';
 
 //Traer todas las recetas
@@ -10,10 +11,12 @@ export const getAll = () =>{
   }
 }
 
+//Cambia el paginado de Home
 export const changePage = (page) =>{
   return {type: CHANGE_PAGE, payload: page}
 }
 
+//Busca las recetas que coincidan con la busqueda ingresada por el usuario en Home
 export const seacrhRecipe = (txtSearch) =>{
   return (dispatch) => {
     fetch(`${URL_BACKEND}/recipes?title=${txtSearch}`)
@@ -30,3 +33,24 @@ export const seacrhRecipe = (txtSearch) =>{
 export const clearErrorStatus = () =>{
   return {type:CHANGE_ERROR_STATUS, payload: ''}
 }
+
+//Trae todas las dietas
+export const getDiets = () =>{
+  return (dispatch) => {
+    fetch(`${URL_BACKEND}/diets`)
+      .then(res => res.json())
+      .then(data => dispatch({type: GET_DIETS, payload: data}))
+  }
+}
+
+//Filtra las recetas por dieta
+export const filterByDiet = (diet) => ({type: FILTER_BY_DIET, payload:diet})
+
+//Filtra las recetas creadas por el usuario o pre-existentes
+export const filterByCreator = (creator) => ({type: FILTER_BY_CREATOR, payload:creator})
+
+//Ordena las recetas por titulo ascendente o descendente
+export const orderByTitle = (orientation) => ({type: ORDER_BY_TITLE, payload:orientation})
+
+//Ordena las recetas por healt score ascendente o descendente
+export const orderByHealthy = (orientation) => ({type: ORDER_BY_HEALTHY, payload:orientation})

@@ -1,0 +1,23 @@
+.filter{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.filterSelect{
+  /* width: 45%; */
+  max-width: 150px;
+  font-family: inherit;
+  font-weight: 700;
+  background-color: #FFFFFF;
+  color: #808BA8;
+  height: 36px;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px 8px 16px;
+}
+
+.selectOrder{
+  max-width: 108px;
+}
