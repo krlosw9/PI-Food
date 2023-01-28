@@ -1,12 +1,14 @@
 import {GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS, GET_DIETS,
-        FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY} from '../actions/type'
+        FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY,
+        RECIPE_DETAIL, CLEAR_DETAIL_RECIPE} from '../actions/type'
 
 const initialState = {
   allRecipes: [],
   allRecipesCopy: [],
   currentPage: 1,
   errorStatus: '',
-  allDiets: []
+  allDiets: [],
+  recipeDetail: {}
 }
 
 export default function rootReducer(state = initialState, {type, payload}) {
@@ -75,6 +77,17 @@ export default function rootReducer(state = initialState, {type, payload}) {
       return {
         ...state,
         allRecipes: orderFunction([...state.allRecipesCopy] ,payload, 'healthScore')
+      }
+
+    case RECIPE_DETAIL:
+      return {
+        ...state,
+        recipeDetail: payload
+      }
+    case CLEAR_DETAIL_RECIPE:
+      return {
+        ...state,
+        recipeDetail: {}
       }
   
     default: return state

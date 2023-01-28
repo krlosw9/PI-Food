@@ -1,5 +1,6 @@
 import { GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS,GET_DIETS,
-          FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY } from "./type";
+          FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY,
+          RECIPE_DETAIL,CLEAR_DETAIL_RECIPE } from "./type";
 const URL_BACKEND = 'http://192.168.10.87:3001';
 
 //Traer todas las recetas
@@ -54,3 +55,16 @@ export const orderByTitle = (orientation) => ({type: ORDER_BY_TITLE, payload:ori
 
 //Ordena las recetas por healt score ascendente o descendente
 export const orderByHealthy = (orientation) => ({type: ORDER_BY_HEALTHY, payload:orientation})
+
+/* ************************************* DETAIL ************************************* */
+export const recipeDetail = (recipeId) =>{
+  return (dispatch) => {
+    fetch(`${URL_BACKEND}/recipes/${recipeId}`)
+      .then(res => res.json())
+      .then(data => dispatch({type:RECIPE_DETAIL, payload:data}))
+  }
+}
+
+export const clearDetailRecipe = () =>{
+  return {type: CLEAR_DETAIL_RECIPE}
+}

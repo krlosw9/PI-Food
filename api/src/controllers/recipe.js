@@ -7,7 +7,9 @@ const { API_KEY } = process.env;
 
 const LIMIT = 100;
 
+//Borrar produccion
 const recipesApiTemporarily = require('./recipesApiTemporarily');
+const recipeTem = require('./recipeApiTemp');
 
 //Esta funcion es llamada desde la funcion index del handler recipe, esta funcion trae todas las recipe de base de datos y de la api
 const getAll = async () =>{
@@ -93,24 +95,25 @@ const cleanArrayDB = (recipesRaw) =>{
 
 //Retorna una receta de la api con su informacion detallada
 const getDetailsRecipesApi = (idRecipe) =>{
-  const URL = `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}`;
+  // const URL = `https://api.spoonacular.com/recipes/${idRecipe}/information?apiKey=${API_KEY}`;
 
-  const recipe = axios.get(URL)
-    .then(r => {
-      return {
-        title:        r.data.title,
-        summary:      r.data.summary,
-        healthScore:  r.data.healthScore,
-        time:         r.data.readyInMinutes,
-        image:        r.data.image,
-        instructions: r.data.analyzedInstructions[0]?.steps.map(inst => inst.step),
-        ingredients:  r.data.extendedIngredients.map(ing => ing.original),
-        dishTypes:    r.data.dishTypes,
-        diets:        r.data.diets,
-      }
-    })
+  // const recipe = axios.get(URL)
+  //   .then(r => {
+  //     return {
+  //       title:        r.data.title,
+  //       summary:      r.data.summary,
+  //       healthScore:  r.data.healthScore,
+  //       time:         r.data.readyInMinutes,
+  //       image:        r.data.image,
+  //       instructions: r.data.analyzedInstructions[0]?.steps.map(inst => inst.step),
+  //       ingredients:  r.data.extendedIngredients.map(ing => ing.original),
+  //       dishTypes:    r.data.dishTypes,
+  //       diets:        r.data.diets,
+  //     }
+  //   })
 
-  return recipe;
+  // return recipe;
+  return recipeTem;
 }
 
 //Consulta en base de datos una receta

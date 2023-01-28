@@ -1,0 +1,17 @@
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.btnBack{
+  width: 42px;
+  height: 42px;
+  background-color: #FF795B;
+  border-radius: 50%;
+  padding-top: 25%;
+  padding-left: 30%;
+}

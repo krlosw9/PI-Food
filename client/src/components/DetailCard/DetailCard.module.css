@@ -1,0 +1,25 @@
+.detailCard{
+  background-color: #DEE8FF;
+}
+
+.card{
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 3rem;
+}
+
+.containerImage{
+  text-align: center;
+}
+
+.recipeImage{
+  width: 308px;
+  height: 200px;
+  border-radius: 10px;
+  object-fit: cover;
+  text-align: center;
+}
+
+.summary{
+  word-break: break-word;
+}
