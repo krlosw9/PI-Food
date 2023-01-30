@@ -8,6 +8,8 @@ export default function DetailCard({ recipe }) {
   return (
     <article className={style.detailCard}>
       <Header />
+      {recipe.hasOwnProperty('message') && <h3 className={style.successMessage}>{recipe.message}</h3>}
+      
       <div className={style.card}>
         <section>
           <figure className={style.containerImage}>

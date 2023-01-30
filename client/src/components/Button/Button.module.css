@@ -24,9 +24,17 @@ a{
   width: 14px;
 }
 
-.btnBack :is(img){
-  width: 10px;
-  left: -8px;
+.btnRoundBack{
+  width: 42px;
+  height: 42px;
+  background-color: #FF795B;
+  border-radius: 50%;
+  border: none;
+  margin: 0 auto;
+}
+
+.btnRoundBack :is(img){
+  padding: 25%;
 }
 
 .btnKnowMore{

@@ -1,7 +1,7 @@
 import { GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS,GET_DIETS,
           FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY,
-          RECIPE_DETAIL,CLEAR_DETAIL_RECIPE } from "./type";
-const URL_BACKEND = 'http://192.168.10.87:3001';
+          RECIPE_DETAIL,CLEAR_DETAIL_RECIPE,GET_DISH_TYPES, URL_BACKEND } from "./type";
+
 
 //Traer todas las recetas
 export const getAll = () =>{
@@ -67,4 +67,14 @@ export const recipeDetail = (recipeId) =>{
 
 export const clearDetailRecipe = () =>{
   return {type: CLEAR_DETAIL_RECIPE}
+}
+
+/* ************************************* FORM CREATE ************************************* */
+
+export const getDishTypes = () =>{
+  return (dispatch) => {
+    fetch(`${URL_BACKEND}/dishTypes`)
+      .then(res => res.json())
+      .then(data => dispatch({type: GET_DISH_TYPES, payload:data}))
+  }
 }
