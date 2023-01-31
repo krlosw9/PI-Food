@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux'
 import { changePage } from '../../redux/actions';
 import style from './Pagination.module.css'
-import bntNext from '../../utils/pagination/bntNext.png'
+import BtnNext from '../Button/BtnNext';
 
 export default function Pagination({pageCount, currentPage}) {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export default function Pagination({pageCount, currentPage}) {
         </ul>
       </section>
       <section>
-        {currentPage < pageCount && <img src={bntNext} alt="button-next-pagination" onClick={handlerNext}/>}
+        {currentPage < pageCount && <BtnNext handlerNext={handlerNext}/>}
       </section>
     </div>
   )

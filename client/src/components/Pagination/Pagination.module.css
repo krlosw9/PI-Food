@@ -19,10 +19,3 @@
   flex-direction: row;
   gap: 1rem;
 }
-
-.pagination :is(img){
-  width: 40px;
-  height: 40px;
-  position: relative;
-  top: 3px;
-}

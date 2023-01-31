@@ -1,8 +1,8 @@
 import Header from '../Header/Header'
 import Error404 from '../Errors/Error404'
 import style from './DetailCard.module.css'
-import IconHeart from '../../utils/card/IconHeart.png'
-import iconClock from '../../utils/card/iconClock.png'
+import IconHeart from '../../utils/card/IconHeart.svg'
+import iconClock from '../../utils/card/iconClock.svg'
 
 export default function DetailCard({ recipe }) {
 

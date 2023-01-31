@@ -1,4 +1,4 @@
-import iconNewRecipe from '../../utils/navBar/IconNewRecipe.png'
+import iconNewRecipe from '../../utils/navBar/IconNewRecipe.svg'
 import {Link} from 'react-router-dom'
 import style from './Button.module.css'
 

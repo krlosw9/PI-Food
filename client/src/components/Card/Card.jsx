@@ -1,6 +1,6 @@
 import style from './Card.module.css'
-import IconHeart from '../../utils/card/IconHeart.png'
-import iconClock from '../../utils/card/iconClock.png'
+import IconHeart from '../../utils/card/IconHeart.svg'
+import iconClock from '../../utils/card/iconClock.svg'
 import BtnKnowMore from '../Button/BtnKnowMore'
 
 export default function Card({id, image, title, healthScore, time, diets}) {

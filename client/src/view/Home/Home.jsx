@@ -8,8 +8,8 @@ import Cards from '../../components/Cards/Cards'
 import BtnNew from '../../components/Button/BtnNew'
 import Logo from "../../components/Logo/Logo"
 import Pagination from '../../components/Pagination/Pagination'
-import iconGithub from '../../utils/footer/iconGithub.png'
-import iconLinkedin from '../../utils/footer/iconLinkedin.png'
+import iconGithub from '../../utils/footer/iconGithub.svg'
+import iconLinkedin from '../../utils/footer/iconLinkedin.svg'
 
 export default function Home() {
   const PAGINATOR_SIZE = 9;
