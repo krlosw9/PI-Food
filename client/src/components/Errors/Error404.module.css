@@ -1,5 +1,10 @@
 .containerError{
+  width: 90%;
+  max-width: 300px;
+  margin: 3.8rem auto;
+  color: #746d5b;
   text-align: center;
-  font-size: 7.5rem;
+  font-size: 2rem;
   font-size: 700;
+  object-fit: cover;
 }

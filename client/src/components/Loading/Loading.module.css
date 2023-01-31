@@ -1,5 +1,16 @@
 .loading{
+  background-color: #DEE8FF;
+  min-height: 100vh;
+}
+
+.container{
+  width: 90%;
+  max-width: 300px;
+  color: gray;
+  vertical-align: center;
   text-align: center;
-  font-size: 7.5rem;
-  font-size: 700;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 auto;
+  padding-top: 3rem;
 }

@@ -1,6 +1,7 @@
 .containerHome{
   background-color: #DEE8FF;
   padding-top: 1rem;
+  min-height: 100vh;
 }
 .secondContainer{
   width: 90%;

@@ -1,10 +1,14 @@
-import style from './DetailCard.module.css'
 import Header from '../Header/Header'
+import Error404 from '../Errors/Error404'
+import style from './DetailCard.module.css'
 import IconHeart from '../../utils/card/IconHeart.png'
 import iconClock from '../../utils/card/iconClock.png'
 
 export default function DetailCard({ recipe }) {
 
+  if (recipe.hasOwnProperty('error')) {
+    return <div><Header /> <Error404 /></div>
+  }
   return (
     <article className={style.detailCard}>
       <Header />
