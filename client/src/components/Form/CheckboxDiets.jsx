@@ -5,7 +5,7 @@ export default function CheckboxDiets({diets, handleChange, isChecked}) {
     <div className={style.formContainer}>
       <div className={style.checkboxContainer}>
         <h3>Choose diets:</h3>
-        {diets.map(dt => (
+        {Array.isArray(diets) && diets.map(dt => (
           <div key={dt.id}>
             <input
               type="checkbox"

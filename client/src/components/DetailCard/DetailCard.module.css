@@ -1,12 +1,12 @@
 .detailCard{
   background-color: #DEE8FF;
   min-height: 100vh;
+  padding-bottom: 3rem;
 }
 
 .card{
   width: 90%;
   margin: 0 auto;
-  padding-bottom: 3rem;
 }
 
 .successMessage{
@@ -17,16 +17,86 @@
 
 .containerImage{
   text-align: center;
+  margin: 1rem auto;
 }
 
 .recipeImage{
-  width: 308px;
+  width: 100%;
+  max-width: 308px;
   height: 200px;
   border-radius: 10px;
   object-fit: cover;
   text-align: center;
 }
 
+p{
+  color: #808BA8;
+}
+
+.mainContent :is(h1){
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #021E40;
+  margin-bottom: 1rem;
+}
+
+.mainContent :is(h3){
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #021E40;
+  padding: 0.5rem 0;
+}
+
+.scores{
+  margin-top: 1rem;
+  color: #808BA8;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.scores :is(img){
+  position: relative;
+  top: 8px;
+  margin-right: 0.5rem;
+}
+.scoreHeart{
+  margin-right: 1.5rem;
+}
+
+.secondaryContent :is(h2){
+  color: #021E40;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+}
+
+.secondaryContent :is(ul, ol){
+  padding-left: 1rem;
+  color: #808BA8;
+}
+
+.secondaryContent :is(li){
+  margin-bottom: 0.5rem;
+}
+
 .summary{
   word-break: break-word;
+}
+
+@media (min-width: 600px) {
+  .mainContent{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .containerImage{
+    flex-grow: 1;
+  }
+  .basicDetails{
+    flex-grow: 4;
+  }
 }

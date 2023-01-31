@@ -5,7 +5,7 @@ export default function CheckboxDishType({dishTypes, handleChange, isChecked}) {
     <div className={style.formContainer}>
       <div className={style.checkboxContainer}>
         <h3>Choose dish types:</h3>
-        {dishTypes.map(dt => (
+        {Array.isArray(dishTypes) && dishTypes.map(dt => (
           <div key={dt.id}>
             <input
               type="checkbox"
