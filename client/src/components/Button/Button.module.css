@@ -13,6 +13,14 @@ a{
   width: fit-content;
 }
 
+.button:hover{
+  cursor: pointer;
+  background-color: #fa6341;
+  -webkit-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.75);
+}
+
 .button :is(img){
   width: 16px;
   position: relative;
@@ -37,8 +45,23 @@ a{
   padding: 25%;
 }
 
+.btnRoundBack:hover{
+  cursor: pointer;
+  background-color: #fa6341;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
 .btnKnowMore{
   background-color: #FBFBFB;
   border: 2px solid #FF795B;
   color: #808BA8
+}
+
+.btnKnowMore:hover{
+  background-color: #e9edf9;
+  -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
 }
