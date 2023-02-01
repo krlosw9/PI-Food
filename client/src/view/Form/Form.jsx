@@ -121,6 +121,7 @@ export default function Form() {
       <Header />
       <form>
         <div>
+          {/* error.register es cargado con error  generado por el backend, si lo tiene */}
           {error.register && <h2 className={`errorMessage ${style.errorMessage}`}>{error.register}</h2>}
 
           <BasicInfo state={input} error={error} handleChange={handlerInputChange} />
