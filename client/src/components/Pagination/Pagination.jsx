@@ -23,7 +23,11 @@ export default function Pagination({pageCount, currentPage}) {
     <div className={style.pagination}>
       <section>
         <ul>
-          {pages.map(page => <li key={page} onClick={() => handlerPage(page)}>{page}</li>)}
+          {pages.map(page => (
+            page === currentPage 
+              ? <li key={page} onClick={() => handlerPage(page)} className={style.pageSelected}>{page}</li>
+              : <li key={page} onClick={() => handlerPage(page)}>{page}</li>
+            ))}
         </ul>
       </section>
       <section>

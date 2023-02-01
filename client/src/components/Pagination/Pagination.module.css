@@ -19,3 +19,17 @@
   flex-direction: row;
   gap: 1rem;
 }
+
+.pagination :is(li):hover{
+  cursor: pointer;
+  color: #055cc5;
+}
+
+.pageSelected{
+  background-color: #FF795B;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  color: #FBFBFB;
+}
