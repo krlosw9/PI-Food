@@ -59,8 +59,12 @@ export default function Home() {
           Desarrollado por: <span>Carlos Eduardo Waldo Rojas</span>
           </section>
         <section>
-          <img src={iconLinkedin} alt="logo-linkedin" className={style.footerLinkedin}/>
-          <img src={iconGithub} alt="logo-github" className={style.footerGithub}/>
+          <a href="https://www.linkedin.com/in/carlos-waldo-rojas/">
+            <img src={iconLinkedin} alt="logo-linkedin" className={style.footerLinkedin}/>
+          </a>
+          <a href="https://github.com/krlosw9">
+            <img src={iconGithub} alt="logo-github" className={style.footerGithub}/>
+          </a>
         </section>
       </footer>
     </div>
