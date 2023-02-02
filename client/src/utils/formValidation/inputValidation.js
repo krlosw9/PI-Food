@@ -1,6 +1,6 @@
 const inputValidation = (inp) =>{
   const err = {};
-  const expRegText = new RegExp(/^[ a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,.]+$/);
+  const expRegText = new RegExp(/^[ a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ,.:]+$/);
 
   if (!inp.title) {
     err.title = 'Title required.'
@@ -8,14 +8,16 @@ const inputValidation = (inp) =>{
     if (!expRegText.test(inp.title)) {
       err.title = 'Only letters and numbers are allowed.'
     }
+    if(inp.title.length > 100) err.title = 'Max 100 letters.'
   }
 
   if (!inp.summary) {
     err.summary = 'Summary required.'
   }else{
     if (!expRegText.test(inp.summary)) {
-      err.title = 'Only letters and numbers are allowed.'
+      err.summary = 'Only letters and numbers are allowed.'
     }
+    if(inp.summary.length > 100) err.summary = 'Max 100 letters.'
   }
 
   if (inp.image) {
@@ -49,6 +51,12 @@ const inputValidation = (inp) =>{
   if(inp.ingredient) {
     if (!expRegText.test(inp.ingredient)) {
       err.ingredient = 'Only letters and numbers are allowed.'
+    }
+  }
+
+  if(inp.instruction) {
+    if (!expRegText.test(inp.instruction)) {
+      err.instruction = 'Only letters and numbers are allowed.'
     }
   }
 
