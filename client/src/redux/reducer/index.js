@@ -2,6 +2,8 @@ import {GET_ALL,CHANGE_PAGE,SEARCH_RECIPE,CHANGE_ERROR_STATUS, GET_DIETS,
         FILTER_BY_DIET,FILTER_BY_CREATOR,ORDER_BY_TITLE,ORDER_BY_HEALTHY,
         RECIPE_DETAIL, CLEAR_DETAIL_RECIPE, GET_DISH_TYPES} from '../actions/type'
 
+import {mainFiltersAndSorting} from './utils';
+
 const initialState = {
   allRecipes: [],
   allRecipesCopy: [],
@@ -9,7 +11,13 @@ const initialState = {
   errorStatus: '',
   allDiets: [],
   recipeDetail: {},
-  allDishTypes: []
+  allDishTypes: [],
+  filtersAndSorting: {
+    filterByDiet: '',
+    filterByCreator: '',
+    orderByTitle: '',
+    orderByHealthy: '',
+  }
 }
 
 export default function rootReducer(state = initialState, {type, payload}) {
@@ -45,39 +53,33 @@ export default function rootReducer(state = initialState, {type, payload}) {
       }
 
     case FILTER_BY_DIET:
-      let filterOne = [];
-      const dietName = payload.toLowerCase();
-
-      payload === 'none' 
-        ? filterOne = state.allRecipesCopy
-        : filterOne = state.allRecipesCopy.filter(recipe => recipe.diets.some(diet => diet === dietName))
-
+      
       return {
         ...state,
-        allRecipes: filterOne
+        filtersAndSorting: {...state.filtersAndSorting, filterByDiet:payload},
+        allRecipes: mainFiltersAndSorting({...state.filtersAndSorting, filterByDiet:payload} ,[...state.allRecipesCopy])
       }
     
     case FILTER_BY_CREATOR:
-      let filterTwo = [];
-      payload === 'none' 
-        ? filterTwo = state.allRecipesCopy
-        : filterTwo = state.allRecipesCopy.filter(recipe => recipe.created.toString() === payload) 
-
+      
       return {
         ...state,
-        allRecipes: filterTwo
+        filtersAndSorting: {...state.filtersAndSorting, filterByCreator:payload},
+        allRecipes: mainFiltersAndSorting({...state.filtersAndSorting, filterByCreator:payload} ,[...state.allRecipesCopy])
       }
 
     case ORDER_BY_TITLE:
       return {
         ...state,
-        allRecipes: orderFunction([...state.allRecipesCopy] ,payload, 'title')
+        filtersAndSorting: {...state.filtersAndSorting, orderByTitle:payload},
+        allRecipes: mainFiltersAndSorting({...state.filtersAndSorting, orderByTitle:payload} ,[...state.allRecipesCopy])
       }
     
     case ORDER_BY_HEALTHY:
       return {
         ...state,
-        allRecipes: orderFunction([...state.allRecipesCopy] ,payload, 'healthScore')
+        filtersAndSorting: {...state.filtersAndSorting, orderByHealthy:payload},
+        allRecipes: mainFiltersAndSorting({...state.filtersAndSorting, orderByHealthy:payload} ,[...state.allRecipesCopy])
       }
 
     case RECIPE_DETAIL:
@@ -99,29 +101,4 @@ export default function rootReducer(state = initialState, {type, payload}) {
   
     default: return state
   }
-}
-
-const orderFunction = (recipes, orientation, property) => {
-  //El parametro recipes es una copia de state.allRecipesCopy
-  //El metodo sort() cambia el contenido del array que lo esta llamando
-  //Al cambiar el contenido del array original, redux no retorna copia del state, por lo tanto no hay re-render en los componentes que estan suscritos a la propiedad allRecipes
-  let order = [];
-
-  if (orientation === 'none'){ 
-    order = recipes 
-  }else if(orientation === 'up'){
-    order = recipes.sort((firstEl, secondEl) =>{
-      if (firstEl[property] > secondEl[property]) return 1
-      if (firstEl[property] < secondEl[property]) return -1
-      return 0;//Si ninguna de los dos if anteriores se cumple retorna aqui
-    } )
-  }else if(orientation === 'down'){
-    order = recipes.sort((firstEl, secondEl) =>{
-      if (firstEl[property] > secondEl[property]) return -1
-      if (firstEl[property] < secondEl[property]) return 1
-      return 0;//Si ninguna de los dos if anteriores se cumple retorna aqui
-    } )
-  }
-
-  return order;
 }
