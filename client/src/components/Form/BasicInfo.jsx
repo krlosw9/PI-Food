@@ -12,7 +12,7 @@ export default function BasicInfo({state, error, handleChange}) {
       {error.healthScore && <p className={`errorMessage ${style.errorMessage}`}>{error.healthScore}</p>}
       <input type="number" placeholder="Time: (min: 1 - max: 100) minutes" name="time" value={state.time} onChange={handleChange} />
       {error.time && <p className={`errorMessage ${style.errorMessage}`}>{error.time}</p>}
-      <textarea placeholder="Summary(*): (max: 100 letters)" name="summary" value={state.summary} onChange={handleChange} cols="30" rows="10"></textarea>
+      <textarea placeholder="Summary(*): (max: 250 letters)" name="summary" value={state.summary} onChange={handleChange} cols="30" rows="10"></textarea>
       {error.summary && <p className={`errorMessage ${style.errorMessage}`}>{error.summary}</p>}
     </div>
   )

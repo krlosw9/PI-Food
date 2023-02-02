@@ -16,9 +16,17 @@
   padding: 8px 16px 8px 16px;
 }
 
+.margin{
+  margin: 1rem auto;
+}
+
 .errorStatus{
   display: flex;
   justify-content: center;
   gap: 2rem;
   margin-top: 10px;
+}
+
+.errorStatus :is(p){
+  color: rgb(146, 2, 2); 
 }
