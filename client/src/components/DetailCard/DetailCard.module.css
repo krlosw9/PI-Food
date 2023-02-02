@@ -90,13 +90,14 @@ p{
   .mainContent{
     display: flex;
     flex-direction: row;
-    gap: 1rem;
   }
 
   .containerImage{
     flex-grow: 1;
+    text-align: inherit;
   }
   .basicDetails{
     flex-grow: 4;
   }
+
 }
